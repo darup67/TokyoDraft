@@ -1,0 +1,25 @@
+{
+  "name": "project2group4",
+  "version": "1.0.0",
+  "description": "Tokyo Draft",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VivaMango/Project2Group4.git"
+  },
+  "author": "VivaMango and Group",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VivaMango/Project2Group4/issues"
+  },
+  "homepage": "https://github.com/VivaMango/Project2Group4#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql2": "^1.6.5",
+    "sequelize": "^4.43.0"
+  }
+}
