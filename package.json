@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/VivaMango/Project2Group4.git"
   },
-  "author": "",
+  "author": "VivaMango and Group",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/VivaMango/Project2Group4/issues"
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/VivaMango/Project2Group4#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "mysql": "^2.16.0"
+    "mysql2": "^1.6.5",
+    "sequelize": "^4.43.0"
   }
 }
