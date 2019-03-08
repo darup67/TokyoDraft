@@ -1,11 +1,11 @@
-USE burgers_db;
+USE tokyo_draft;
 
-INSERT INTO burgers (burger_name, devoured) VALUES ('', '1');
-INSERT INTO burgers (burger_name, devoured) VALUES ('', '1');
-INSERT INTO burgers (burger_name, devoured) VALUES ('', '1');
-INSERT INTO burgers (burger_name, devoured) VALUES ('', '1');
-INSERT INTO burgers (burger_name, devoured) VALUES ('', '1');
-INSERT INTO burgers (burger_name, devoured) VALUES ('', '1');
-INSERT INTO burgers (burger_name, devoured) VALUES ('', '1');
-INSERT INTO burgers (burger_name, devoured) VALUES ('', '1');
-INSERT INTO burgers (burger_name, devoured) VALUES ('', '1');
+INSERT INTO tokyo_draft (burger_name, devoured) VALUES ('', '1');
+INSERT INTO tokyo_draft (burger_name, devoured) VALUES ('', '1');
+INSERT INTO tokyo_draft (burger_name, devoured) VALUES ('', '1');
+INSERT INTO tokyo_draft (burger_name, devoured) VALUES ('', '1');
+INSERT INTO tokyo_draft (burger_name, devoured) VALUES ('', '1');
+INSERT INTO tokyo_draft (burger_name, devoured) VALUES ('', '1');
+INSERT INTO tokyo_draft(burger_name, devoured) VALUES ('', '1');
+INSERT INTO tokyo_draft(burger_name, devoured) VALUES ('', '1');
+INSERT INTO tokyo_draft (burger_name, devoured) VALUES ('', '1');
