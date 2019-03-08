@@ -1,7 +1,7 @@
 {
   "name": "project2group4",
   "version": "1.0.0",
-  "description": "Tokyo Draft",
+  "description": "GT Bootcamp Project #2 for Group #4",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
