@@ -1,14 +1,24 @@
-var http = require("http");
+var express = require("express")
 
-var PORT = 8080;
+// TODO
+// var controller = require("./controllers/controller.js")
 
-function handleRequest(request, response) {
 
-  response.end("It Works!! Path Hit: " + request.url);
-}
-var server = http.createServer(handleRequest);
+var PORT = process.env.PORT || 8080
 
-server.listen(PORT, function() {
+console.log("SERVERJS TEST")
 
-  console.log("Server listening on: http://localhost:" + PORT);
+var app = express();
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("public"))
+
+// TODO
+// controller(app)
+
+//MAIN SCREEN TURN ON
+
+app.listen(PORT , function() {
+    console.log(`APP NOW LISTENING ON ${PORT}`)
 });
