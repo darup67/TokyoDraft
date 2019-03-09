@@ -1,4 +1,8 @@
 node_modules
+<<<<<<< HEAD
+package.json
+package-lock.json
+=======
 .DS_Store
 package.json
 package-lock.json
@@ -39,3 +43,4 @@ package-lock.json
 .Trashes
 ehthumbs.db
 Thumbs.db
+>>>>>>> fd9f3f6e660a488f542f555aa46d455981abaf48
