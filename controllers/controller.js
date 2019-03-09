@@ -8,6 +8,7 @@ var model = require("../models/model");
 
 router.get("/", function(req, res) {
   tokyo_draft.selectAll(function(result) {
+    res.render("index", {result});
   });
 });
 
