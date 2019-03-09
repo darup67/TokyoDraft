@@ -1,3 +1,4 @@
+//PROBABLY GOING TO DELETE AFTER USING SEQUELIZECLI
 // Dependencies
 var Sequelize = require("sequelize");
 
