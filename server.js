@@ -21,6 +21,6 @@ app.use(express.static("public"))
 // controller(app)
 
 //MAIN SCREEN TURN ON
-app.listen(PORT , function() {
+app.listen(PORT, function() {
     console.log(`APP NOW LISTENING ON ${PORT}`)
 });
