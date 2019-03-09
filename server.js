@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.static("public"))
 
 // TODO
-// controller(app)
+controller(app)
 
 //MAIN SCREEN TURN ON
 db.sequelize.sync().then(function() {

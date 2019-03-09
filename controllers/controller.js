@@ -1,24 +1,23 @@
-var express = require("express");
-var router = express.Router();
 var db = require("../models");
 
-router.get("/", function(req, res) {
-  tokyo_draft.selectAll(function(result) {
-    res.render("index", {result});
+module.exports = function(app) {
+
+  //WORKING
+  app.get("/", function(req, res) {
+    console.log(req , "request")
+    db.Player.findAll({}).then(function(allPlayers) {
+      res.json(allPlayers)
+    })
   });
-});
-
-router.post("/api/tokyo_draft", function(req, res) {
-  tokyo_draft.insertOne(req.body._name, function(result) {
-    res.json({ id: result.insertId });
+  
+  //TODO
+  app.post("/api/tokyo_draft", function(req, res) {
+    
   });
-});
-
-router.put("/api/tokyo_draft/:id", function(req, res) {
-  tokyo_draft.updateOne(req.body.req.params.id, function(result){
-res.json({ id:result });
+  
+  //TODO
+  app.put("/api/tokyo_draft/:id", function(req, res) {
+    
   });
-});
 
-
-module.exports = router;
+}
