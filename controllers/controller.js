@@ -1,10 +1,6 @@
 var express = require("express");
-
 var router = express.Router();
-
-var constructor = require("../models/constructor");
-
-var model = require("../models/model");
+var db = require("../models");
 
 router.get("/", function(req, res) {
   tokyo_draft.selectAll(function(result) {
