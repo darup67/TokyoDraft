@@ -1,4 +1,5 @@
 CREATE DATABASE tokyo_draft; IF NOT EXISTS tokyo_draft;
+
 USE tokyo_draft
 
 DROP TABLE IF EXISTS tokyo_draft;
