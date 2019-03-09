@@ -1,8 +1,9 @@
 // SERVER.JS DEPENDENCIES
 var express = require("express")
+var db = require("./models")
 
 // TODO
-// var controller = require("./controllers/controller.js")
+var controller = require("./controllers/controller.js")
 
 //PORT
 var PORT = process.env.PORT || 8080
@@ -21,6 +22,8 @@ app.use(express.static("public"))
 // controller(app)
 
 //MAIN SCREEN TURN ON
-app.listen(PORT, function() {
-    console.log(`APP NOW LISTENING ON ${PORT}`)
+db.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
+        console.log(`APP NOW LISTENING ON ${PORT}`)
+    });
 });

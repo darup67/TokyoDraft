@@ -1,9 +1,23 @@
 module.exports = function(sequelize , DataTypes) {
     var Player = sequelize.define("Player" , {
-        name: DataTypes.STRING,
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         teamName: DataTypes.STRING,
-        points: DataTypes.DECIMAL,
-        drafted: DataTypes.BOOLEAN,
-        draftedTeam: DataTypes.INTEGER
-    })
+        points: {
+            type: DataTypes.DECIMAL,
+            defaultValue: 0,
+            allowNull: false
+        },
+        drafted: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
+        draftedTeam: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0
+        }
+    });
+    return Player;
 }
