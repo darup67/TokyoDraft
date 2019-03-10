@@ -2,7 +2,7 @@
 var express = require("express")
 var db = require("./models")
 
-// TODO
+//IMPORTING ROUTES
 var controller = require("./controllers/controller.js")
 
 //PORT
@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"))
 
-// TODO
+//INVOKE ROUTES
 controller(app)
 
 //MAIN SCREEN TURN ON
