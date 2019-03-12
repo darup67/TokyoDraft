@@ -1,6 +1,7 @@
 // SERVER.JS DEPENDENCIES
 var express = require("express")
 var db = require("./models")
+var path = require("path")
 
 //IMPORTING ROUTES
 var controller = require("./controllers/controller.js")
@@ -16,7 +17,7 @@ var app = express();
 //MIDDLEWARE
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"))
+app.use('/', express.static(path.join(__dirname, 'public')))
 
 //INVOKE ROUTES
 controller(app)
