@@ -1,0 +1,142 @@
+.board {
+    position: relative;
+    margin-left: 1%;
+  }
+  .board-column {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 30%;
+    margin: 0 1.5%;
+    background: #f0f0f0;
+    border-radius: 3px;
+    z-index: 1;
+  }
+  .board-column.muuri-item-releasing {
+    z-index: 2;
+  }
+  .board-column.muuri-item-dragging {
+    z-index: 3;
+    cursor: move;
+  }
+  .board-column-header {
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+    padding: 0 20px;
+    text-align: center;
+    background: #333;
+    color: #fff;
+    border-radius: 3px 3px 0 0;
+  }
+  @media (max-width: 600px) {
+    .board-column-header {
+      text-indent: -1000px;
+    }
+  }
+
+  .board-column.todo {
+      position: relative;
+      width: 20%;
+  }
+  .board-column.working {
+      
+      width: 50%
+  }
+  .board-column.done {
+      width: 20%
+  }
+  .board-column.todo .board-column-header {
+    background: rgb(24, 85, 150);
+  }
+  .board-column.working .board-column-header {
+    background: #922b1d;
+  }
+  .board-column.done .board-column-header {
+    background: #11753e;
+  }
+  .board-column-content {
+    position: relative;
+    border: 10px solid transparent;
+    min-height: 95px;
+  }
+  .board-item {
+    position: absolute;
+    width: 30%;
+    margin: 5px 0;
+  }
+  .board-item.muuri-item-releasing {
+    z-index: 9998;
+  }
+  .board-item.muuri-item-dragging {
+    z-index: 9999;
+    cursor: move;
+  }
+  .board-item.muuri-item-hidden {
+    z-index: 0;
+  }
+  .board-item-content {
+    position: relative;
+    padding: 20px;
+    background: #fff;
+    border-radius: 4px;
+    font-size: 17px;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 1px 3px 0 rgba(0,0,0,0.2);
+    box-shadow: 0px 1px 3px 0 rgba(0,0,0,0.2);
+  }
+  @media (max-width: 600px) {
+    .board-item-content {
+      text-align: center;
+    }
+    .board-item-content span {
+      display: none;
+    }
+  }
+
+  .button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4c21e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  img {
+    vertical-align: middle;
+    display: table-cell;
+    width: 100%;
+  }
