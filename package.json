@@ -21,7 +21,12 @@
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "mysql2": "^1.6.5",
+<<<<<<< HEAD
     "sequelize": "^4.43.0",
     "sequelize-heroku": "^2.0.0"
+=======
+    "path": "^0.12.7",
+    "sequelize": "^4.43.0"
+>>>>>>> 0915e6cd67b2577ec9a11ad5929100aae67900e2
   }
 }
