@@ -1,23 +1,24 @@
-{
+module.exports = {
+
+
+
     "development": {
         "username": "root",
         "password": "password",
         "database": "tokyo_draft",
-        "host": "localhost",
+        "host": "127.0.0.1",
         "dialect": "mysql"
     },
     "test": {
         "username": "root",
         "password": "password",
         "database": "tokyo_draft",
-        "host": "localhost",
+        "host": "127.0.0.1",
         "dialect": "mysql"
     },
     "production": {
-        "username": "root",
-        "password": "testpass",
-        "database": "database_production",
-        "host": "localhost",
+        "use_env_variable": "JAWSDB_URL",
         "dialect": "mysql"
     }
+
 }
