@@ -8,8 +8,7 @@
     right: 0;
     width: 30%;
     margin: 0 1.5%;
-    background: #f0f0f0;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     z-index: 1;
   }
   .board-column.muuri-item-releasing {
@@ -26,9 +25,10 @@
     overflow: hidden;
     padding: 0 20px;
     text-align: center;
-    background: #333;
     color: #fff;
     border-radius: 3px 3px 0 0;
+    font-family: 'Monoton', cursive;
+    font-size: 30px;
   }
   @media (max-width: 600px) {
     .board-column-header {
@@ -48,13 +48,10 @@
       width: 20%
   }
   .board-column.todo .board-column-header {
-    background: rgb(24, 85, 150);
   }
   .board-column.working .board-column-header {
-    background: #922b1d;
   }
   .board-column.done .board-column-header {
-    background: #11753e;
   }
   .board-column-content {
     position: relative;
@@ -98,7 +95,7 @@
   .button {
     display: inline-block;
     border-radius: 4px;
-    background-color: #f4c21e;
+    background-color:#33cc33;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -108,6 +105,8 @@
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
+    font-family: 'Monoton', cursive;
+
   }
   
   .button span {
@@ -140,3 +139,8 @@
     display: table-cell;
     width: 100%;
   }
+body{
+  background-image: url(../img/865825bfcb9a048.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -47,3 +47,8 @@ boardGrid = new Muuri('.board', {
   dragReleaseDuration: 400,
   dragReleaseEasing: 'ease'
 });
+
+
+
+
+
