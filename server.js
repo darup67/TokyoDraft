@@ -1,4 +1,6 @@
 // SERVER.JS DEPENDENCIES
+
+console.log("SERVERJS TEST")
 var express = require("express")
 var db = require("./models")
 var path = require("path")
@@ -8,8 +10,6 @@ var controller = require("./controllers/controller.js")
 
 //PORT
 var PORT = process.env.PORT || 8080
-
-console.log("SERVERJS TEST")
 
 //APP
 var app = express();
