@@ -1,10 +1,11 @@
 var db = require("../models");
+var path = require("path")
 
 module.exports = function(app) {
 
   //TODO GET ROUTE FOR INDEX.HTML
   app.get("/", function(req, res) {
-    res.sendFile()
+    res.sendFile(path.join(__dirname, "../public/assets/html/index.html"));
   })
 
   //GET ALL PLAYERS ROUTE WORKING
