@@ -60,11 +60,18 @@ function getPlayers() {
 
 //Constructor that takes a single Row array from Sequelize and turns it into a format we want.
 
-function Player() {
-
+function Player(name, teamName, points, drafted, draftedTeam, photoURL) {
+  this.name = name;
+  this.teamName = teamName,
+  this.points = points;
+  this.drafted = drafted;
+  this.draftedTeam = draftedTeam;
+  this.photoURL = photoURL;
 }
 
 //Function iterating our getPlayers response and making a variable for each.
 function makePlayers(rowData) {
-  
+  for (i = 0; i < rowData.length; i++) {
+    
+  }
 };
