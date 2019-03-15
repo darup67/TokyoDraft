@@ -5,8 +5,8 @@ USE tokyo_draft;
 //WESTERN CONFERENCE
 
 //GOLDEN STATE WARRIORS
-INSERT INTO players (name , teamName , points , drafted , draftedTeam , createdAt , updatedAt)
-VALUES ("Stephen Curry" , "Golden State Warriors" , "28.1" , false , 0 , "1000-01-01 00:00:00" , "1000-01-01 00:00:00");
+INSERT INTO players (name , teamName , points , drafted , draftedTeam , photoURL , createdAt , updatedAt)
+VALUES ("Stephen Curry" , "Golden State Warriors" , "28.1" , false , 0 , "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" , "1000-01-01 00:00:00" , "1000-01-01 00:00:00");
 INSERT INTO players (name , teamName , points , drafted , draftedTeam , createdAt , updatedAt)
 VALUES ("Kevin Durant" , "Golden State Warriors" , "27.5" , false , 0 , "1000-01-01 00:00:00" , "1000-01-01 00:00:00");
 INSERT INTO players (name , teamName , points , drafted , draftedTeam , createdAt , updatedAt)
