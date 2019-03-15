@@ -79,12 +79,12 @@ function Player(name, teamName, points, drafted, draftedTeam, photoURL) {
 function makePlayers(rowData) {
     var newPlayer = new Player (rowData.name , rowData.teamName , rowData.points , rowData.drafted , rowData.draftedTeam , rowData.photoURL)
     importedPlayerArray.push(newPlayer)
-    console.log(importedPlayerArray, rowData , newPlayer , "constructor consolelog")
 };
 
 
 function makeNewItem(PlayerObject) {
   var newBoardItem = $("<div>")
+  newBoardItem.attr("itemData" , `${PlayerObject.name}`)
   newBoardItem.addClass("board-item")
   var newBoardItemContent = $("<div>")
   newBoardItemContent.addClass("board-item-content")
@@ -138,6 +138,30 @@ itemContainers.forEach(function (container) {
     columnGrids.forEach(function (grid) {
       grid.refreshItems();
     });
+    var draggedItem = item.getElement();
+    var draggedData = $(draggedItem).attr("itemData")
+    var draggedParent = $(draggedItem).parent().parent();
+    draggedDaddy = draggedParent[0]
+    var draggedBoardClass = draggedDaddy.className
+    switch (draggedBoardClass) {
+      //TEAM 1 OR LEFT SIDE
+      case "board-column todo muuri-item muuri-item-shown": 
+      var movedPlayerItem = importedPlayerArray.find(function(element) {
+        return element.name === draggedData
+      })
+      var foundPlayerItem = movedPlayerItem.draftedTeam
+      console.log(movedPlayerItem , "movedPlayerItem")
+      console.log(foundPlayerItem , "fPI")
+        break;
+      //TEAM 2 OR RIGHT SIDE
+      case "board-column done muuri-item muuri-item-shown":
+        break;
+      //MIDDLE UNSELECTED
+      case "board-column working muuri-item muuri-item-shown":
+        break;
+      default:
+        break;
+    }
   })
   .on('layoutStart', function () {
     boardGrid.refreshItems().layout();
