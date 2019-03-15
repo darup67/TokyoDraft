@@ -1,7 +1,9 @@
 var importedPlayerArray = []
 var teamOneArray = []
 var teamTwoArray = []
+var grids = []
 
+//GAME START
 $(document).ready(function() {
   getPlayers().then(function(data) {
     data.forEach(function(element) {
@@ -12,16 +14,14 @@ $(document).ready(function() {
     })
     runMuuri();
     newBoardGrid();
-
-    //MODAL POPUP
-  }) //Sequelize gets all players.
-
+    $("#loadModal").modal("show");
+  });
 
 
-  //MODAL CLOSE EVENT LISTENER
-  //TODO PICK FUNCTIONS GO HERE
 
-  //TODO ARRAY MATH FOR WINNER GOES HERE
+  $('#loadModal').on('hidden.bs.modal', function (event) {
+    playGame();
+  })
 })
 
 
@@ -30,15 +30,43 @@ $(document).ready(function() {
 //RUNNING CODE ABOVE
 //FUNCTION DEFINITIONS BELOW
 
+//function to run on modal close to check gamestate recursively
+function playGame() {
+  if (teamOneArray.length === 0) {
+    firstPick(playGame);
+  } else if (teamTwoArray.length < 5) {
+    console.log("nextpick trigger")
+    // nextPick();
+    // playGame();
+  } else if (teamTwoArray.length = 5) {
+    // pickWinner();
+  }
+}
 
 //Function designed to recursively be called to start our game.
-function firstPick() {
+function firstPick(pGfn) {
  //TODO Fill span with Team A Pick text, wait for TeamOneArray.length = 1?
+ $("#pickText").append("Team A")
+ columnGrids[0].on('dragReleaseEnd', function (item) {
+   var gotElement = item.getElement()
+   elementAttr = $(gotElement).attr("itemdata")
+   var draftedPlayerObject = importedPlayerArray.find(function(element) {
+     return element.name === elementAttr
+   })
+   pGfn();
+ })
 }
 
 //Function to iterate picks after the first
 function nextPick() {
  //TODO make every pick after pick one If TeamOneArray.length = 1....run nextPick until TeamTwoArray.length = 5?
+ console.log("nextPick trigger")
+}
+
+function pickWinner(arrayOne , arrayTwo) {
+  //TODO use arrays to determine winning team
+  console.log("pickWinner trigger")
+  //TODO display winnerModal
 }
 
 //Function to update a drafted player for Team One UNNECESSARY, DATA DOESNT NEED TO BE UPDATED IN DATABASE DURING GAMEPLAY
@@ -157,7 +185,6 @@ itemContainers.forEach(function (container) {
       })
       movedPlayerItem.draftedTeam = 1
       teamOneArray.push(movedPlayerItem)
-      console.log(teamOneArray , "tOA")
         break;
       //TEAM 2 OR RIGHT SIDE
       case "board-column done muuri-item muuri-item-shown":
@@ -166,7 +193,6 @@ itemContainers.forEach(function (container) {
       })
       movedPlayerItem.draftedTeam = 2
       teamTwoArray.push(movedPlayerItem)
-      console.log(teamTwoArray , "tTA")
         break;
       //MIDDLE UNSELECTED
       case "board-column working muuri-item muuri-item-shown":
@@ -181,6 +207,7 @@ itemContainers.forEach(function (container) {
     boardGrid.refreshItems().layout();
   });
 
+  // THIS WAS GOOD
   columnGrids.push(grid);
 
 });

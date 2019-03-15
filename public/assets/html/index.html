@@ -27,6 +27,9 @@
 
     <div style="text-align:center;">
         <button class="button" style="vertical-align:middle"><span> Play Game </span></button>
+        <span id="pickingSpan">
+            <p>Currently Picking: <p id="pickText"></p></p>
+        </span>
     </div>
 
     <div class="board">
@@ -57,4 +60,45 @@
 
 
 </body>
+
+<!-- PAGE LOAD MODAL GOES HERE -->
+<div id="loadModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Welcome to Tokyo Draft!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Game Instructions Go HERE</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close to Play!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- GAME FINISHED MODAL GOES HERE -->
+<div id="endModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">...and the winner is:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>WINNING TEAM SPAN GOES HERE</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close to Play Again!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </html>
