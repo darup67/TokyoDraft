@@ -17,6 +17,10 @@ module.exports = function(sequelize , DataTypes) {
         draftedTeam: {
             type: DataTypes.INTEGER,
             defaultValue: 0
+        },
+        photoURL: {
+            type: DataTypes.STRING,
+            defaultValue: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
         }
     });
     return Player;

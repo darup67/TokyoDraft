@@ -1,11 +1,22 @@
+var importedPlayerArray = []
+
 $(document).ready(function() {
-  getPlayers(); //Sequelize gets all players.
+  getPlayers().then(function(data) {
+    data.forEach(function(element) {
+      makePlayers(element);
+    })
+    importedPlayerArray.forEach(function(element) {
+      makeNewItem(element);
+    })
+    runMuuri();
+    newBoardGrid();
+
+    //MODAL POPUP
+  }) //Sequelize gets all players.
 
 
 
-  //MODAL POPUP GOES HERE
-
-  //MODAL CLOSE EVENT LISTENER GOES HERE
+  //MODAL CLOSE EVENT LISTENER
 })
 
 
@@ -66,15 +77,42 @@ function Player(name, teamName, points, drafted, draftedTeam, photoURL) {
 
 //Function iterating our getPlayers response and making a variable for each.
 function makePlayers(rowData) {
-  for (i = 0; i < rowData.length; i++) {
-    
-  }
+    var newPlayer = new Player (rowData.name , rowData.teamName , rowData.points , rowData.drafted , rowData.draftedTeam , rowData.photoURL)
+    importedPlayerArray.push(newPlayer)
+    console.log(importedPlayerArray, rowData , newPlayer , "constructor consolelog")
 };
 
+
+function makeNewItem(PlayerObject) {
+  var newBoardItem = $("<div>")
+  newBoardItem.addClass("board-item")
+  var newBoardItemContent = $("<div>")
+  newBoardItemContent.addClass("board-item-content")
+  var newImageSpan = $("<span>")
+  var newImg = $("<img>")
+  newImg.attr("src" , PlayerObject.photoURL)
+  newImageSpan.append(newImg)
+  var newTextSpan = $("<span>")
+  newSpanTextString = PlayerObject.name
+  newTextSpan.append(newSpanTextString)
+  var newPointsSpan = $("<span>")
+  newSpanPointsString = PlayerObject.points
+  newPointsSpan.append(newSpanPointsString)
+  newBoardItemContent.append(newImageSpan)
+  newBoardItemContent.append(newTextSpan)
+  newBoardItemContent.append(newPointsSpan)
+  newBoardItem.append(newBoardItemContent)
+  $("#chooseTeamBoard").append(newBoardItem)
+}
+
+
+
+//MUURI STUFF
 var itemContainers = [].slice.call(document.querySelectorAll('.board-column-content'));
 var columnGrids = [];
 var boardGrid;
 
+function runMuuri() {
 itemContainers.forEach(function (container) {
 
   var grid = new Muuri(container, {
@@ -108,15 +146,21 @@ itemContainers.forEach(function (container) {
   columnGrids.push(grid);
 
 });
+}
 
-boardGrid = new Muuri('.board', {
-  layoutDuration: 400,
-  layoutEasing: 'ease',
-  dragEnabled: true,
-  dragSortInterval: 0,
-  dragStartPredicate: {
-    handle: '.board-column-header'
-  },
-  dragReleaseDuration: 400,
-  dragReleaseEasing: 'ease'
-});
+function newBoardGrid() {
+  boardGrid = new Muuri('.board', {
+    layoutDuration: 400,
+    layoutEasing: 'ease',
+    dragEnabled: true,
+    dragSortInterval: 0,
+    dragStartPredicate: {
+      handle: '.board-column-header'
+    },
+    dragReleaseDuration: 400,
+    dragReleaseEasing: 'ease'
+  });
+
+
+  return boardGrid;
+};
