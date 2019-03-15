@@ -1,4 +1,6 @@
 var importedPlayerArray = []
+var teamOneArray = []
+var teamTwoArray = []
 
 $(document).ready(function() {
   getPlayers().then(function(data) {
@@ -17,6 +19,9 @@ $(document).ready(function() {
 
 
   //MODAL CLOSE EVENT LISTENER
+  //TODO PICK FUNCTIONS GO HERE
+
+  //TODO ARRAY MATH FOR WINNER GOES HERE
 })
 
 
@@ -28,12 +33,12 @@ $(document).ready(function() {
 
 //Function designed to recursively be called to start our game.
 function firstPick() {
-
+ //TODO Fill span with Team A Pick text, wait for TeamOneArray.length = 1?
 }
 
 //Function to iterate picks after the first
 function nextPick() {
-
+ //TODO make every pick after pick one If TeamOneArray.length = 1....run nextPick until TeamTwoArray.length = 5?
 }
 
 //Function to update a drafted player for Team One UNNECESSARY, DATA DOESNT NEED TO BE UPDATED IN DATABASE DURING GAMEPLAY
@@ -65,7 +70,7 @@ function getPlayers() {
 }
 
 //Constructor that takes a single Row array from Sequelize and turns it into a format we want.
-
+//TODO Add ID to constructor/Player Objects
 function Player(name, teamName, points, drafted, draftedTeam, photoURL) {
   this.name = name;
   this.teamName = teamName,
@@ -76,12 +81,13 @@ function Player(name, teamName, points, drafted, draftedTeam, photoURL) {
 }
 
 //Function iterating our getPlayers response and making a variable for each.
+//TODO add ID
 function makePlayers(rowData) {
     var newPlayer = new Player (rowData.name , rowData.teamName , rowData.points , rowData.drafted , rowData.draftedTeam , rowData.photoURL)
     importedPlayerArray.push(newPlayer)
 };
 
-
+//TODO add line break between name and points, maybe add team name to cards if possible
 function makeNewItem(PlayerObject) {
   var newBoardItem = $("<div>")
   newBoardItem.attr("itemData" , `${PlayerObject.name}`)
@@ -149,17 +155,25 @@ itemContainers.forEach(function (container) {
       var movedPlayerItem = importedPlayerArray.find(function(element) {
         return element.name === draggedData
       })
-      var foundPlayerItem = movedPlayerItem.draftedTeam
-      console.log(movedPlayerItem , "movedPlayerItem")
-      console.log(foundPlayerItem , "fPI")
+      movedPlayerItem.draftedTeam = 1
+      teamOneArray.push(movedPlayerItem)
+      console.log(teamOneArray , "tOA")
         break;
       //TEAM 2 OR RIGHT SIDE
       case "board-column done muuri-item muuri-item-shown":
+      var movedPlayerItem = importedPlayerArray.find(function(element) {
+        return element.name === draggedData
+      })
+      movedPlayerItem.draftedTeam = 2
+      teamTwoArray.push(movedPlayerItem)
+      console.log(teamTwoArray , "tTA")
         break;
       //MIDDLE UNSELECTED
       case "board-column working muuri-item muuri-item-shown":
+        //TODO error message when player is not dragged to team A or B, If statement checking movedPlayerItem.draftedTeam for val
         break;
       default:
+        //TODO figure out what default would be, might be unnecessary.
         break;
     }
   })
